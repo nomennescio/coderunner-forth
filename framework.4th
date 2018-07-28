@@ -21,12 +21,12 @@ s" test/ttester.fs" included
 
 : #ms ( dmicroseconds -- len c-addr ) <# # # # [char] . hold #s #> ;
 
-: describe#{ ( len c-addr -- ) ." <DESCRIBE::>" cr type cr utime ;
-: it#{ ( len c-addr -- ) ." <IT::>" cr type cr utime ;
-: }# ( -- ) utime ." <COMPLETEDIN::>" cr 2swap d- #ms type ."  ms" cr ;
+: describe#{ ( len c-addr -- ) cr ." <DESCRIBE::>" type cr utime ;
+: it#{ ( len c-addr -- ) cr ." <IT::>" type cr utime ;
+: }# ( -- ) utime cr ." <COMPLETEDIN::>" 2swap d- #ms type ."  ms" cr ;
 
-: failed# ( -- ) ." <FAILED::>" cr ;
-: passed# ( -- ) ." <PASSED::>" cr ;
+: failed# ( -- ) cr ." <FAILED::>" ;
+: passed# ( -- ) cr ." <PASSED::>" ;
 
 create EXPECTED-RESULTS 32 cells allot
 variable RESULTS
